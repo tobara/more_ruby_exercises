@@ -18,12 +18,7 @@ class Ogre
   def encounter(human)
     @encounters += 1
     human.encounters(self)
-    human.knocked_out = case
-    when @swings != 0 && @swings % 2 == 0
-        then true
-    when % 1 == 0
-        then false
-    end
+    human.knocked_out = @swings % 1 == 0
   end
 
   def encounter_counter
@@ -59,14 +54,8 @@ class Human
 
   def encounters(ogre)
     @encounters += 1
-    if @encounters % 3 == 0 && @encounters != 0
-      @saw_ogre = true
-    else
-      @saw_ogre = false
-    end
-    if @saw_ogre == true
-      ogre.swings += 1
-    end
+    @saw_ogre = @encounters % 3 == 0 && @encounters != 0
+    ogre.swings += 1 if @saw_ogre == true
   end
 
   def encounter_counter

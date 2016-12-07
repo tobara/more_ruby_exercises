@@ -10,12 +10,9 @@ class Medusa
   end
 
   def stare(victim)
-    if statues.count == 3
-      statues.first.stoned = false
-      statues.delete_at(0)
-    end
-      victim.stoned = true
-      statues.push(victim)
+    statues.first.stoned = false, statues.delete_at(0) if statues.count == 3
+    victim.stoned = true
+    statues.push(victim)
   end
 
   def statues

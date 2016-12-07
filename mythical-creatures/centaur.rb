@@ -23,9 +23,7 @@ class Centaur
 
   def shoot
     @count += 1
-    if cranky?
-      @shoot = 'NO!'
-    end
+    @shoot = 'NO!' if cranky?
     @shoot
   end
 
@@ -44,10 +42,7 @@ class Centaur
   end
 
   def sleep
-    unless standing?
-      @sleeping = 'Okay, I will sleep'
-      @count = 0
-    end
+    @sleeping = 'Okay, I will sleep' and @count = 0 if not standing?
     @sleeping
   end
 
@@ -68,11 +63,8 @@ class Centaur
 
   def drink_potion
     if standing?
-      if @count < 3
-        @sick = true
-      else
-        reset
-      end
+      @sick = @count < 3 ? true :
+      reset if not @sick == true
     else
       "I can't"
     end

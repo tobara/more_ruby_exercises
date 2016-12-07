@@ -21,9 +21,7 @@ class Werewolf
 
   def change!
     @human = !@human
-    unless human? and !hungry?
-      @hungry = !@hungry
-    end
+    @hungry = !@hungry if not human? and !hungry?
   end
 
   def wolf?
@@ -36,9 +34,6 @@ class Werewolf
 
   def consume(victim)
     @victim = victim
-    unless human?
-      @victim.status = :dead
-      @hungry = false
-    end
+    @victim.status = :dead and @hungry = false if not human?
   end
 end
