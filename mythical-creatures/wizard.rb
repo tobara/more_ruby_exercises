@@ -31,8 +31,6 @@ class Wizard
 
   def casted
     @cast_count += 1
-    if @cast_count >= 3
-      @rested = false
-    end
+    @rested = @cast_count < 3 ? true : false
   end
 end

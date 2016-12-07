@@ -19,9 +19,7 @@ class Pirate
 
   def commit_heinous_act
     @act_count += 1
-    if @act_count >= 3
-      @cursed = true
-    end
+    @cursed = @act_count >= 3 ? true : false
   end
 
   def cursed?

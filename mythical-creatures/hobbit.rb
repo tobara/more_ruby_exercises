@@ -24,30 +24,15 @@ class Hobbit
   end
 
   def adult?
-    @adult = case
-    when @age >= 33
-      then true
-    when @age < 33
-      then false
-    end
-    @adult
+    @adult = @age >= 33 ? true : false
   end
 
   def old?
-    @old = case
-    when @age < 101
-      then false
-    when @age >= 101
-      then true
-    end
-    @old
+    @old = @age >= 101 ? true : false
   end
 
   def has_ring?
-    if @name == 'Frodo'
-      @has_ring = true
-    end
-    @has_ring
+    @has_ring = @name == 'Frodo' ? true : false
   end
 
   def is_short?
