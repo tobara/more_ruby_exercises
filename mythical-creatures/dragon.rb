@@ -20,11 +20,7 @@ class Dragon
   end
 
   def hungry?
-    @hungry = case
-    when @hunger > 0 then true
-    when @hunger < 0 then false
-    end
-    @hungry
+    @hungry = @hunger > 0 ? true : false
   end
 
   def eat

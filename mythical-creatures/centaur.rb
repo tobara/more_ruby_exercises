@@ -31,17 +31,12 @@ class Centaur
 
   def run
     @count += 1
-    if cranky?
-      @run = 'NO!'
-    end
+    cranky? == true ? @run = "NO!" :
     @run
   end
 
   def cranky?
-    @cranky = case
-    when @count >= 3 then true
-    end
-    @cranky
+    @cranky = @count >= 3 ? true : false
   end
 
   def standing?
